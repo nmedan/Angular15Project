@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {MenuComponent} from './menu.component'
 import { UserListComponent } from '../user/user.component';
 import  {AddUserComponent } from '../user/add-user.component';
@@ -9,12 +9,16 @@ import {UserService} from '../user/user.service';
   selector: 'app-root',
   templateUrl: 'app.component.html'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   users: any[] = [];
   title: string = '';
   isAddUser: boolean = false;
 
   constructor (private userService: UserService)  {
+    
+  }
+
+  ngOnInit() {
     this.getUsers();
   }
 
