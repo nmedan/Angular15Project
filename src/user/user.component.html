@@ -1,0 +1,19 @@
+<div>
+  <h1>{{title}}</h1>
+  <table class="table">
+    <thead>
+      <tr>     
+         <th class="userListTable">Name</th>
+         <th class="userListTable">Username</th>
+         <th class="userListTable">Email</th>  
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+         <td class="userListTable">{{user.name}}</td>
+         <td class="userListTable">{{user.username}}</td>
+         <td class="userListTable">{{user.email}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
