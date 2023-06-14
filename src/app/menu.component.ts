@@ -14,7 +14,6 @@ export class MenuComponent {
   selectMenuTab(state: boolean) {
     this.isAddUser = state;
     this.selectedMenuTabChanged.emit(this.isAddUser);
-    console.log(this.isAddUser);
   }
 
 }
