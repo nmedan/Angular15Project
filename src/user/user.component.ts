@@ -17,7 +17,6 @@ export class UserListComponent {
   title: string = "Lista utenti";
 
   constructor () {
-    
     this.users = [];
   }
 
