@@ -7,19 +7,21 @@ import { AppComponent } from './app.component';
 import { MenuComponent } from './menu.component';
 import { UserListComponent } from '../user/user.component';
 import { AddUserComponent } from '../user/add-user.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     UserListComponent,
-    AddUserComponent
+    AddUserComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSlideToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
