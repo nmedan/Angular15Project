@@ -23,7 +23,7 @@ export class AppComponent {
   }
 
   getUsers() {
-    this.userService.getUsers().subscribe((res) => {this.users = res; console.log(res);})
+    this.userService.getUsers().subscribe((res) => {this.users = res;})
   }
 
   changePage(state: boolean) {
