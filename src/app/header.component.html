@@ -1,0 +1,54 @@
+<style>
+  nav {
+   height:60px;
+   background-color:black;
+   vertical-align:center;
+  }
+
+  .navbar.navbar-inverse .navbar-header {
+    text-align:center;
+    width: 100%;
+    color:white;
+    font-size:30px;
+}
+
+.title {
+  font-size:30px;
+  text-align: center;
+}
+.navbar.navbar-inverse .navbar-header .navbar-brand {
+    display: inline-block;
+    float: none;
+}
+
+.container {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: white;
+  margin: 6px 0;
+  transition: 0.4s;
+  vertical-align:center;
+}
+
+.collapse-menu-button {
+  float:left;
+  vertical-align:center;
+  font-size:30px;
+  cursor:pointer;
+}
+</style>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">  
+    <div class="navbar-header navbar-dark">
+    <div *ngIf="isMobile" class="collapse-menu-button"   (click)="collapseMenu(isMenuOpened)">
+        ☰ 
+     </div>
+    <span >Company name</span> 
+    </div>
+  </div>
+</nav>

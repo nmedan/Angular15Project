@@ -1,36 +1,37 @@
 import { Component, OnInit } from '@angular/core';
-import {MenuComponent} from './menu.component'
-import { UserListComponent } from '../user/user.component';
-import  {AddUserComponent } from '../user/add-user.component';
-import { Observable } from 'rxjs';
-import {UserService} from '../user/user.service';
+import { fromEvent, Observable, Subscription } from "rxjs";
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { debounceTime, throttleTime , map } from 'rxjs/operators';
+import {User} from '../user/user'
+import { AddUserComponent } from '../user/add-user.component';
 
+@UntilDestroy()
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html'
 })
 export class AppComponent implements OnInit {
-  users: any[] = [];
+  users: User[] = [];
   title: string = '';
-  isAddUser: boolean = false;
+  isMobile: boolean = false;
+  isMenuOpened: boolean = false;
 
-  constructor (private userService: UserService)  {
-    
+  constructor ()  {
+     this.isMobile = this.checkIfIsMobile();
   }
 
-  ngOnInit() {
-    this.getUsers();
+  ngOnInit() : void {
+     fromEvent(window, 'resize').pipe(untilDestroyed(this), throttleTime(500), debounceTime(500)).subscribe(() => this.isMobile = this.checkIfIsMobile());
   }
 
-  addNewUser(user: any) {
-    this.userService.addUser(user).subscribe(() => {this.getUsers();});
+
+  checkIfIsMobile(): boolean {
+     return window.innerWidth < 720 && window.innerHeight < 1280;
   }
 
-  getUsers() {
-    this.userService.getUsers().subscribe((res) => {this.users = res;})
-  }
+  manageMenu(val: boolean) {
+     this.isMenuOpened = !val;
+  } 
 
-  changePage(state: boolean) {
-    this.isAddUser = state;
-  }
+ 
 }

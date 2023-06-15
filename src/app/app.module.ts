@@ -1,13 +1,21 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';  
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu.component';
+import { HeaderComponent } from './header.component';
+import { FooterComponent } from './footer.component';
 import { UserListComponent } from '../user/user.component';
 import { AddUserComponent } from '../user/add-user.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import {MatToolbarModule} from '@angular/material/toolbar'
+import {MatMenuModule} from '@angular/material/menu';
+import {MatIconModule} from '@angular/material/icon';
+import {MatTableModule} from '@angular/material/table';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -15,13 +23,25 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MenuComponent,
     UserListComponent,
     AddUserComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatSlideToggleModule
+    RouterModule.forRoot([
+      {path: 'users', component: UserListComponent},
+      {path: 'add-user', component: AddUserComponent},
+      {path: '',   redirectTo: '/users', pathMatch: 'full' },
+    ]),
+    CommonModule,
+    MatSlideToggleModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatIconModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

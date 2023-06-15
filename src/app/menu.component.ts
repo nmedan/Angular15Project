@@ -5,15 +5,10 @@ import { Input, Output, EventEmitter } from '@angular/core';
   templateUrl: 'menu.component.html'
 })
 export class MenuComponent {
-  @Input() isAddUser: boolean = false;
-  @Output() selectedMenuTabChanged = new EventEmitter<boolean>;
 
+  @Input() isMobile: boolean = false;
   constructor () {
   }
 
-  selectMenuTab(state: boolean) {
-    this.isAddUser = state;
-    this.selectedMenuTabChanged.emit(this.isAddUser);
-  }
 
 }
