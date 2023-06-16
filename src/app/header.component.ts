@@ -12,8 +12,8 @@ import {UserService} from '../user/user.service';
 export class HeaderComponent implements OnInit {
 
   @Input() isMobile: boolean = false;
-  @Input() isMenuOpened: boolean = false;
-  @Output() menuOpenedClosed = new EventEmitter<boolean>;
+  @Input() open: boolean = false;
+  @Output() openChange = new EventEmitter<boolean>;
 
   constructor ()  {
     console.log(this.isMobile);
@@ -23,7 +23,11 @@ export class HeaderComponent implements OnInit {
 
   }
 
-  collapseMenu(val: boolean) {
-    this.menuOpenedClosed.emit(val);
+ /* collapseMenu() {
+    this.openChange.emit(this.isMobile);
+  }*/
+
+  collapseMenu(val : boolean) {
+    this.openChange.emit(val);
   }
 }

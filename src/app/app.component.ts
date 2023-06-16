@@ -12,15 +12,25 @@ import { AddUserComponent } from '../user/add-user.component';
 })
 export class AppComponent implements OnInit {
   users: User[] = [];
-  title: string = '';
+  title: string | undefined;
+  //title2!: string;
   isMobile: boolean = false;
   isMenuOpened: boolean = false;
 
   constructor ()  {
-     this.isMobile = this.checkIfIsMobile();
   }
 
   ngOnInit() : void {
+     
+   //   if (!this.title) {
+   //     console.log(thititle)
+   //   }
+     this.isMobile = this.checkIfIsMobile();
+   //   this.title2.length;
+   //   this.title?.length;
+   //   if (this.title !== undefined) {
+   //    this.title.length;
+   //   }
      fromEvent(window, 'resize').pipe(untilDestroyed(this), throttleTime(100), debounceTime(100)).subscribe(() => this.isMobile = this.checkIfIsMobile());
   }
 

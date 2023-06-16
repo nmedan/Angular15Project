@@ -18,7 +18,32 @@
 </style>
 <div>
   <h1> {{title}} </h1>
-  <form [formGroup]="addUserForm"  (ngSubmit) = "onSubmit()"  [ngStyle]= "{'width': isMobile ? '100%' : '50%'}" >
+  <ng-template [ngIf]="isMobile" [ngIfElse]="NotMobile">
+    <form [formGroup]="addUserForm"  (ngSubmit) = "onSubmit()"  style = "width: 100%; margin-bottom:0" >
+      <div class="row">
+          <label for="name" >Name: </label>
+          <input id="name" class="form-control" type="text" formControlName="name" [(ngModel)]="user.name">
+      </div>
+      <div class="row">
+          <label for="email" >Email: </label>
+          <input id="email" class="form-control mb" type="text" formControlName="email" [(ngModel)]="user.email">     
+      </div>
+      <div class="row">
+          <label for="name" >Username: </label>
+          <input id="username" class="form-control" type="text" formControlName="username" [(ngModel)]="user.username">
+       </div>
+       <div class="row">
+          <label for="phone">Phone: </label>
+          <input id="phone" class="form-control" type="text" formControlName="phone"  [(ngModel)]="user.phone">
+      </div>
+        <div  class="row" >
+            <button class="btn btn-success"  type="submit" >Save</button>       
+        </div>
+       
+  </form>
+  </ng-template>
+  <ng-template #NotMobile >
+  <form [formGroup]="addUserForm"  (ngSubmit) = "onSubmit()"  style="width:50%" >
       <div class="row">
         <div class="col">
           <label for="name" >Name: </label>
@@ -39,13 +64,9 @@
           <input id="phone" class="form-control" type="text" formControlName="phone"  [(ngModel)]="user.phone">
         </div>
       </div>
-      <ng-template [ngIf]="isMobile" [ngIfElse]="NotMobile">
-        <div  class="row">
-            <button class="btn btn-success"  type="submit" >Save</button>       
-        </div>
-       </ng-template> 
-       <ng-template #NotMobile>
-            <button class="btn btn-success"  type="submit" >Save</button>    
-       </ng-template>
+            <button class="btn btn-success"  type="submit" >Save</button>        
+       
   </form>
+  </ng-template>
+  
 </div> 

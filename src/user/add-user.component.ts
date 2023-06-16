@@ -18,9 +18,8 @@ export class AddUserComponent {
    addUserForm: FormGroup;
    title: string = "Aggiungi utente";
    isMobile: boolean = false;
-
   constructor (private userService: UserService) { 
-    this.isMobile = this.checkIfIsMobile();  
+     
     this.addUserForm = new FormGroup({
        name: new FormControl(null),
        username: new FormControl(null),
@@ -32,6 +31,7 @@ export class AddUserComponent {
   }
 
   ngOnInit() : void {
+    this.isMobile = this.checkIfIsMobile();
     fromEvent(window, 'resize').pipe(untilDestroyed(this), throttleTime(100), debounceTime(100)).subscribe(() => this.isMobile = this.checkIfIsMobile());
   }
 

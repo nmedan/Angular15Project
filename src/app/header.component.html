@@ -45,8 +45,8 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">  
     <div class="navbar-header navbar-dark">
-     <div *ngIf="isMobile" class="collapse-menu-button"   (click)="collapseMenu(isMenuOpened)">
-       {{isMenuOpened ? 'X' : '☰' }}  
+     <div *ngIf="isMobile" class="collapse-menu-button"   (click)="collapseMenu(open)">
+       {{open ? 'X' : '☰' }}  
      </div> 
     <span >Company name</span> 
     </div>
