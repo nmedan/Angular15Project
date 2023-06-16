@@ -38,17 +38,17 @@
 .collapse-menu-button {
   float:left;
   vertical-align:center;
-  font-size:30px;
   cursor:pointer;
 }
+
 </style>
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">  
     <div class="navbar-header navbar-dark">
-    <div *ngIf="isMobile" class="collapse-menu-button"   (click)="collapseMenu(isMenuOpened)">
-        ☰ 
-     </div>
+     <div *ngIf="isMobile" class="collapse-menu-button"   (click)="collapseMenu(isMenuOpened)">
+       {{isMenuOpened ? 'X' : '☰' }}  
+     </div> 
     <span >Company name</span> 
     </div>
   </div>
-</nav>
+</nav> 

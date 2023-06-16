@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() : void {
-     fromEvent(window, 'resize').pipe(untilDestroyed(this), throttleTime(500), debounceTime(500)).subscribe(() => this.isMobile = this.checkIfIsMobile());
+     fromEvent(window, 'resize').pipe(untilDestroyed(this), throttleTime(100), debounceTime(100)).subscribe(() => this.isMobile = this.checkIfIsMobile());
   }
 
 
