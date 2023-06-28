@@ -1,0 +1,144 @@
+<style>
+  button {
+    margin-top:20px;
+  }
+
+  form {
+    margin-top:20px;
+  }
+
+  button {
+    float:right;
+  }
+
+  .for-field {
+    margin-top:10px;
+    margin-bottom:10px;
+    margin-left:10px;
+    margin-right:10px;
+  }
+
+  fieldset {
+    border: 1px solid black;
+  }
+
+
+</style>
+<div>
+  <h1> {{title}} </h1>
+  <ng-template [ngIf]="isMobile" [ngIfElse]="NotMobile">
+    <form [formGroup]="addUserForm"  (ngSubmit) = "onSubmit()"  style = "width: 100%; margin-bottom:0" >
+      <fieldset class="border rounded-1 p-1">
+        <legend class="float-none w-auto px-1">User data </legend>
+      <div class="row for-field">
+        <div class="col">
+          <label for="name" >Name: </label>
+          <input id="name" class="form-control" type="text" formControlName="name" [(ngModel)]="user.name">
+        </div>
+      </div>
+      <div class="row for-field">
+        <div class="col">
+          <label for="email" >Email: </label>
+          <input id="email" class="form-control mb" type="text" formControlName="email" [(ngModel)]="user.email">    
+        </div> 
+      </div>
+      <div class="row for-field">
+        <div class="col">
+          <label for="name" >Username: </label>
+          <input id="username" class="form-control" type="text" formControlName="username" [(ngModel)]="user.username">
+        </div>
+       </div>
+       <div class="row for-field">
+        <div class="col">
+          <label for="phone">Phone: </label>
+          <input id="phone" class="form-control" type="text" formControlName="phone"  [(ngModel)]="user.phone">
+        </div>
+       </div>   
+      </fieldset>
+      <fieldset class="border rounded-3 p-1" forumGroupName="address">
+        <legend class="float-none w-auto px-1">Address</legend>
+        <div class="row for-field">
+          <div class="col" >
+          <label for="street" >Street: </label>
+          <input id="street" class="form-control" type="text"  formControlName="street" [(ngModel)]="user.address.street">
+        </div>
+        </div>
+        <div class="row for-field">
+          <div class="col" >
+          <label for="suite" >Suite: </label>
+          <input id="suite" class="form-control mb" type="text"  formControlName="suite" [(ngModel)]="user.address.suite">     
+        </div>
+         </div>
+        <div class="row for-field">
+          <div class="col" >
+          <label for="city" >City: </label>
+          <input id="city" class="form-control" type="text"  formControlName="city" [(ngModel)]="user.address.city">
+        </div>
+        </div>
+        <div class="row for-field">
+          <div class="col" >
+          <label for="zipcode">Zipcode: </label>
+          <input id="zipcode" class="form-control" type="text"  formControlName="zipcode"  [(ngModel)]="user.address.zipcode">
+        </div>
+        </div>    
+      </fieldset>
+      <div class="row">
+      <div class="col">
+        <button class="btn btn-success" style="width:100%"  type="submit" >Save</button>  
+      </div>   
+      </div>
+  </form>
+  </ng-template>
+  <ng-template #NotMobile >
+  <form [formGroup]="addUserForm"  (ngSubmit) = "onSubmit()"  style="width:50%" >
+    <fieldset class="border rounded-3 p-1">
+      <legend class="float-none w-auto px-1">Personal information</legend>
+      <div class="row for-field">
+        <div class="col">
+          <label for="name" >Name: </label>
+          <input id="name" class="form-control" type="text" formControlName="name" [(ngModel)]="user.name">
+        </div>
+        <div class="col">
+          <label for="email" >Email: </label>
+          <input id="email" class="form-control mb" type="text" formControlName="email" [(ngModel)]="user.email">
+        </div>       
+      </div>
+      <div class="row for-field">
+        <div class="col">
+          <label for="name" >Username: </label>
+          <input id="username" class="form-control" type="text" formControlName="username" [(ngModel)]="user.username">
+        </div>
+        <div class="col">
+          <label for="phone">Phone: </label>
+          <input id="phone" class="form-control" type="text" formControlName="phone"  [(ngModel)]="user.phone">
+        </div>
+      </div>      
+     </fieldset>
+     <fieldset class="border rounded-3 p-1" forumGroupName="addressForm">
+      <legend class="float-none w-auto px-1">Address</legend>
+      <div class="row for-field" >
+        <div class="col" >
+           <label for="street" >Street: </label>
+           <input id="street" class="form-control" type="text"  formControlName="street" [(ngModel)]="user.address.street">
+        </div>
+        <div class="col" >
+           <label for="suite" >Suite: </label>
+           <input id="suite" class="form-control mb" type="text"  formControlName="suite" [(ngModel)]="user.address.suite"> 
+        </div>    
+      </div>
+      <div class="row for-field" >
+        <div class="col">
+           <label for="city" >City: </label>
+           <input id="city" class="form-control" type="text"  formControlName="city" [(ngModel)]="user.address.city">
+        </div>
+        <div class="col" >
+           <label for="zipcode">Zipcode: </label>
+           <input id="zipcode" class="form-control" type="text"  formControlName="zipcode"  [(ngModel)]="user.address.zipcode">
+        </div>
+      </div>    
+    </fieldset>
+     <button class="btn btn-success"  type="submit" >Save</button>
+  </form>
+  </ng-template> 
+  
+</div> 

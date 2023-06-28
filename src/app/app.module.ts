@@ -19,7 +19,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatTableModule} from '@angular/material/table';
 import { RouterModule } from '@angular/router';
 import {MatSidenavModule} from '@angular/material/sidenav';
-
+import {MatFormFieldModule} from '@angular/material/form-field';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +47,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     MatMenuModule,
     MatIconModule,
     MatTableModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]

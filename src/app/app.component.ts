@@ -39,8 +39,8 @@ export class AppComponent implements OnInit {
      return window.innerWidth < 720 && window.innerHeight < 1280;
   }
 
-  manageMenu(val: boolean) {
-     this.isMenuOpened = !val;
+  manageMenu() {
+     this.isMenuOpened = !this.isMenuOpened;
   } 
 
  

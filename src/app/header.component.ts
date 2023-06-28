@@ -4,7 +4,9 @@ import { UserListComponent } from '../user/user.component';
 import  {AddUserComponent } from '../user/add-user.component';
 import { Observable } from 'rxjs';
 import {UserService} from '../user/user.service';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 
+@UntilDestroy()
 @Component({
   selector: 'header',
   templateUrl: 'header.component.html'
